@@ -26,7 +26,7 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 * JavaScript (NodeJS)
 
 <h2>Framework/Lib para o Front-end:</h2>
-* React
+* Vue
 
 <h2>Banco de Dados:</h2>
 * MySQL
