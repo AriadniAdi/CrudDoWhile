@@ -1,31 +1,32 @@
-# CrudDoWhile
+<h1># CrudDoWhile</h1>
 Teste para desenvolvedor web FulStack da empresa DoWhile
 
-Funcionalidades:
 
-● Listagem de usuários.
-● Pesquisa pelos campos: usuário, e-mail e status (ativo/inativo).
-● Remover um usuário através da listagem, com tela de confirmação.
-● Criar um usuário com obrigatoriedade de campos.
-● Editar um usuário.
+<h2>Funcionalidades:</h2>
 
-Validações:
-● Email único.
+* Listagem de usuários.
+* Pesquisa pelos campos: usuário, e-mail e status (ativo/inativo).
+* Remover um usuário através da listagem, com tela de confirmação.
+* Criar um usuário com obrigatoriedade de campos.
+* Editar um usuário.
 
-Campos:
-● Nome
-● Sobrenome
-● E-mail
-● CPF
-● Telefone
-● Data Nascimento
-● Status (Ativo/Inativo)
+<h2>Validações:</h2>
+* Email único.
 
-Linguagem para o Back-end:
-● JavaScript (NodeJS)
+<h2>Campos:</h2>
+* Nome
+* Sobrenome
+* E-mail
+* CPF
+* Telefone
+* Data Nascimento
+* Status (Ativo/Inativo)
 
-Framework/Lib para o Front-end: 
-● React
+<h2>Linguagem para o Back-end:</h2>
+* JavaScript (NodeJS)
 
-Banco de Dados: 
-● MySQL
+<h2>Framework/Lib para o Front-end:</h2>
+* React
+
+<h2>Banco de Dados:</h2>
+* MySQL
