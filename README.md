@@ -14,6 +14,7 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 * Email único.
 
 <h2>Campos:</h2>
+
 * Nome
 * Sobrenome
 * E-mail
@@ -23,10 +24,15 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 * Status (Ativo/Inativo)
 
 <h2>Linguagem para o Back-end:</h2>
+
 * JavaScript (NodeJS)
 
 <h2>Framework/Lib para o Front-end:</h2>
+
 * Vue
 
 <h2>Banco de Dados:</h2>
-* MySQL
+
+ [MySQL](https://dev.mysql.com/downloads/mysql/)
+
+
