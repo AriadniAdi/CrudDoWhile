@@ -24,11 +24,11 @@ app.get('/users', function (req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Ocorreu um erro' });
+        res.json({ message: 'Não foi possível retornar os usuários' });
     });
 });
 
-app.get('/users/:cpf', function (req, res) {
+app.get('/user/:cpf', function (req, res) {
     const sql = 'SELECT * FROM USER WHERE CPF="' + req.params.cpf + '";';
     databaseService.executeQuery(sql)
     .then(function(result) {
@@ -41,7 +41,7 @@ app.get('/users/:cpf', function (req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Ocorreu um erro' });
+        res.json({ message: 'Não foi possível retornar o usuário' });
     });
 });
 
@@ -61,7 +61,7 @@ app.post('/user', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Ocorreu um erro' } );
+        res.json({ message: 'Não foi possível criar o usuário' } );
     });
 });
 
@@ -70,7 +70,7 @@ app.delete('/user/:cpf', function(req, res) {
     databaseService.executeQuery(sql)
     .then(function(result) {
         if(result.affectedRows > 0) {
-            res.json({message: 'usuário deletado com sucesso.'});
+            res.json({message: 'usuário excluído com sucesso.'});
         } else {
             res.status(404);
             res.json({ message: 'Usuário não encontrado.' });
@@ -78,7 +78,7 @@ app.delete('/user/:cpf', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Ocorreu um erro.' });
+        res.json({ message: 'Não foi possível deletar o usuário' });
     });
 });
 
@@ -110,7 +110,7 @@ app.put('/user/:cpf', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Ocorreu um erro' });
+        res.json({ message: 'Não foi possível alterar o usuário' });
     });
 });
 
