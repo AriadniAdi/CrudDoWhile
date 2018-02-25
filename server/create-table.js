@@ -1,4 +1,4 @@
-const databaseService = require('./database_service');
+const databaseService = require('./database-service');
 
 const sqlCreateTable = 'CREATE TABLE IF NOT EXISTS User ('+
                       'firstname varchar(30) NOT NULL,'+
