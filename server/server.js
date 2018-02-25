@@ -24,7 +24,24 @@ app.get('/users', function (req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.send('Ocorreu um erro');
+        res.json({ message: 'Ocorreu um erro' });
+    });
+});
+
+app.get('/users/:cpf', function (req, res) {
+    const sql = 'SELECT * FROM USER WHERE CPF="' + req.params.cpf + '";';
+    databaseService.executeQuery(sql)
+    .then(function(result) {
+        if(result.length > 0) {
+            res.json(result[0]);
+        } else {
+            res.status(404);
+            res.json({ message: 'Usuário não encontrado' });
+        }
+    })
+    .catch(function(error) {
+        res.status(400);
+        res.json({ message: 'Ocorreu um erro' });
     });
 });
 
