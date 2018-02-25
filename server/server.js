@@ -8,6 +8,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const databaseService = require('./database_service');
 databaseService.database = 'dowhile';
 
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE');
+    res.setHeader('Cache-Control', 'no-cache');
+    next();
+});
+
 app.get('/users', function (req, res) {
     const sql = 'SELECT * FROM USER;';
     databaseService.executeQuery(sql)
