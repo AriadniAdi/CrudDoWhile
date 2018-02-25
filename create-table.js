@@ -1,13 +1,5 @@
-const mysql = require('mysql');
 const Promise = require('promise');
 const databaseService = require('./database_service');
-
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  port     : 3306,
-  user     : 'root',
-  password : 'adininja' 
-});
 
 const sqlDropDatabase = 'drop database doWhile;';
 const sqlCreateDatabase = 'create database doWhile;';
