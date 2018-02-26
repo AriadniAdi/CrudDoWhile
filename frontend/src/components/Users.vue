@@ -41,7 +41,7 @@ import Vue from 'vue'
 
 Vue.component('value-text', {
     template: '<td v-on:click="openUser(cpf)">{{ value }}</td>',
-    props: ["cpf", "value"],
+    props: ['cpf', 'value'],
     methods: {
         openUser: function(cpf) {
           this.$router.push({ name: 'EditUser', params: { cpf: cpf } })
@@ -51,7 +51,7 @@ Vue.component('value-text', {
 
 Vue.component('value-checkbox', {
     template: '<td><input type="checkbox" v-model="status" true-value="1" false-value="0" v-on:click="changeStatus(cpf, $event)"/></td>',
-    props: ["cpf", "status"],
+    props: ['cpf', 'status'],
     methods: {
         changeStatus: function(cpf, event) {
             const status = event.target.checked ? 1: 0;
