@@ -1,7 +1,10 @@
 <template>
     <div >
-        <ul class="breadcrumb">
-        <li><a href="#">Usuário</a></li>
+        <ul class="breadcrumbsUser">
+            <li> Você está em: 
+                <router-link to="Users">Usuários</router-link>
+                <router-link to="User"> > Usuário</router-link>
+            </li>
         </ul>
         <div v-if="requestError"> <span> {{ requestError }} </span> </div>
         <form v-if="this.showsForm">

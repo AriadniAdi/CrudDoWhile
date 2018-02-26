@@ -1,8 +1,10 @@
 <template>
     <div>
         <div>
-            <ul class="breadcrumbsUsers">
-                <li><a href="#">Usuários</a><ab href="#"> > Usuários</ab></li>
+            <ul class="breadcrumbsUser">
+                <li>Você está em: 
+                    <router-link to="Users">Usuários</router-link>
+                </li>
             </ul>
         </div>
         <button v-on:click="register()">Adicionar</button>
