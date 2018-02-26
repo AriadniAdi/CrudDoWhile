@@ -1,6 +1,11 @@
 <template>
     <div>
-        <button v-on:click="register()">Cadastre-se</button>
+        <div>
+            <ul class="breadcrumbsUsers">
+                <li><a href="#">Usuários</a><ab href="#"> > Usuários</ab></li>
+            </ul>
+        </div>
+        <button v-on:click="register()">Adicionar</button>
         <table>
             <form>
                 <input placeholder="Pesquisar por nome" v-model="search.firstname"></input>
