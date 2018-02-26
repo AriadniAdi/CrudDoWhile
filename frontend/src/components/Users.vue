@@ -1,14 +1,11 @@
 <template>
     <div class="container">
+        <header>
         <div>
-            <ul class="breadcrumbsUser">
-                <li>Você está em: 
-                    <router-link to="Users">Usuários</router-link>
-                </li>
-            </ul>
+            <nav>Você está em: <router-link to="Users">Usuários</router-link></nav>
         </div>
-        <button v-on:click="register()">Adicionar</button>
-        <table>
+        </header>
+        <div class="input">
             <form>
                 <input placeholder="Pesquisar por nome" v-model="search.firstname"></input>
                 <input placeholder="Pesquisar por email" v-model="search.email"></input>
@@ -18,8 +15,11 @@
                     <option value="0">Inativo</option>
                     <option value="all">Todos</option>
                 </select>
+                <button v-on:click="register()">Adicionar Usuário</button>
             </form>
-            <tr>
+        </div>
+        <table class="tableStyle">
+            <tr >
                 <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>Telefone</th>

@@ -1,0 +1,22 @@
+table {
+    border: 1px solid black;
+    /* botar borda e centralizar */
+}
+
+.table {
+    width: 100%;
+    margin-bottom : .5em;
+    table-layout: fixed;
+    text-align: left;
+    border: 1;
+}
+
+header {
+    height: 30%;
+}
+
+.input {
+    text-align: left;
+    width: auto;
+    padding: 0.5%;
+}
