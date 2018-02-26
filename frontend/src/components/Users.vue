@@ -2,6 +2,17 @@
     <div>
         <button v-on:click="register()">Cadastre-se</button>
         <table>
+            <form>
+                <input placeholder="Pesquisar por nome" v-model="search.firstname"></input>
+                <input placeholder="Pesquisar por email" v-model="search.email"></input>
+                Status:
+                <select v-model="search.status">
+                    <option value="1">Ativo</option>
+                    <option value="0">Inativo</option>
+                    <option value="all">Todos</option>
+                </select>
+                <button v-on:click="search()">Pesquisar</button>
+            </form>
             <tr>
                 <th>Nome</th>
                 <th>Sobrenome</th>
@@ -11,7 +22,7 @@
                 <th>Data de Nascimento</th>
                 <th>Status</th>
             </tr>
-            <tr v-for="user in users">
+            <tr v-for="user in users" v-if="filterRow(user)">
                 <value-text :cpf="user.cpf" :value="user.firstname"></value-text>
                 <value-text :cpf="user.cpf" :value="user.lastname"></value-text>
                 <value-text :cpf="user.cpf" :value="user.phone"></value-text>
@@ -58,7 +69,8 @@ export default {
   name: 'Users',
   data () {
     return {
-        users: []
+        users: [],
+        search: { email: '', status: 'all', firstname: '' }
     }
   },
   methods: {
@@ -74,6 +86,12 @@ export default {
         }, function(error) {
             this.requestError = error.body.message;
         }); 
+      },
+      filterRow: function(user) {
+          const hasFirstName = user.firstname.indexOf(this.search.firstname) >= 0;
+          const hasEmail = user.email.indexOf(this.search.email) >= 0;
+          const hasStatus = this.search.status == 'all' || user.status == this.search.status;
+          return hasFirstName && hasEmail && hasStatus;
       }
   },
   created: function() {
