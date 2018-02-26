@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Users from '@/components/Users'
-import UserEdit from '@/components/UserEdit'
+import User from '@/components/User'
 
 export default new Router({
   routes: [
@@ -15,15 +15,15 @@ export default new Router({
     },
     {
       path: '/user/:cpf',
-      name: 'UserEdit',
-      component: UserEdit,
+      name: 'EditUser',
+      component: User,
       props: true
     },
     {
       path: '/user',
-      name: 'UserEdit',
-      component: UserEdit,
-      props: true
+      name: 'CreateUser',
+      component: User,
+      props: false
     }
   ]
 })
