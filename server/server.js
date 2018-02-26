@@ -82,6 +82,29 @@ app.delete('/user/:cpf', function(req, res) {
     });
 });
 
+app.put('/user/:cpf/:status', function(req, res) {
+    if(!(req.params.status == 1 || req.params.status == 0)) {
+        res.status(400);
+        res.json({ message: 'O status deve ser 0 ou 1.' });
+        return
+    }
+    
+    const sql = 'UPDATE USER SET status= ' + req.params.status + ' WHERE cpf = "' + req.params.cpf + '";';
+    databaseService.executeQuery(sql)
+    .then(function(result) {
+        if(result.affectedRows > 0) {
+            res.json({message: 'usuário alterado com sucesso.'});
+        } else {
+            res.status(404);
+            res.json({message: 'Usuário não encontrado.'});
+        }
+    })
+    .catch(function(error) {
+        res.status(400);
+        res.json({ message: 'Não foi possível alterar o usuário' });
+    });
+});
+
 app.put('/user/:cpf', function(req, res) {
     const fields = [
         { key: 'firstname', value: req.body.firstname, useQuotes: true },
