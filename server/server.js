@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const databaseService = require('./database_service');
+const databaseService = require('./database-service');
 databaseService.database = 'dowhile';
 
 app.use(function(req, res, next) {
