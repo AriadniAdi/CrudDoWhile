@@ -51,4 +51,4 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 3. ``npm install`` Para instalar as dependências.
 4. ``npm run dev`` Para executar.
 
- ## Se tudo der certo, ao acessar a url: localhost:3001 você deverá ver a seguinte tela:
+ ### Se tudo der certo, ao acessar a url: localhost:3001 você deverá ver a seguinte tela:
