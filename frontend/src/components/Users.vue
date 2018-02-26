@@ -18,7 +18,7 @@
                 <value-text :cpf="user.cpf" :value="user.cpf"></value-text>
                 <value-text :cpf="user.cpf" :value="user.email"></value-text>
                 <value-text :cpf="user.cpf" :value="user.birth_date"></value-text>
-                <value-checkbox :cpf="user.cpf" :status="user.status"></value-checkbox>
+                <value-checkbox :cpf="user.cpf" :status="user.status" true-value="1" false-value="0"></value-checkbox>
                 <td><button v-on:click="deleteUser()">Deletar</button></td>
             </tr>
         </table>
@@ -39,14 +39,14 @@ Vue.component('value-text', {
 });
 
 Vue.component('value-checkbox', {
-    template: '<td><input type="checkbox" value="status" v-on:click="changeStatus(cpf, $event)"/></td>',
-    props: ["status", "cpf"],
+    template: '<td><input type="checkbox" v-model="status" true-value="1" false-value="0" v-on:click="changeStatus(cpf, $event)"/></td>',
+    props: ["cpf", "status"],
     methods: {
         changeStatus: function(cpf, event) {
-            const status = event.target.checked ? 1 : 0;
+            const status = event.target.checked ? 1: 0;
             this.$http.put('http://localhost:3001/user/' + cpf + '/' + status)
             .then(function(result) {
-
+                
             }, function(error) {
                 this.requestError = error.body.message;
             }); 

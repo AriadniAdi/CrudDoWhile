@@ -15,7 +15,7 @@
             Telefone: <input v-model="user.phone" placeholder="Telefone">
             Email: <input v-model="user.email" placeholder="Email">
             CPF: <input v-model="user.cpf" placeholder="CPF">
-            Status: <input v-model="user.status" placeholder="Status">
+            Status: <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
 
         <button v-on:click="saveUser()">Salvar</button>
         <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
@@ -54,7 +54,7 @@ export default {
               this.requestError = error.body.message;
           }); 
       },
-      updateUser: function() { 
+      updateUser: function() {
           this.$http.put('http://localhost:3001/user/' + this.$route.params.cpf, this.user)
           .then(function(result) {
               this.openUsers();
