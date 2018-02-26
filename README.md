@@ -47,7 +47,7 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 4. ``node server.js`` para iniciar o servidor node.
 
 ### Vue.js
-1. No terminal abra a pasta do projeto doWhile. E execute:
+1. No terminal abra a pasta do projeto doWhile dentro da pasta FrontEnd. E execute:
 2. ``npm install --global vue-cli`` Para instalar o vue-cli globalmente.
 3. ``npm install`` Para instalação das dependências.
 4. ``npm run dev`` Para executar.
