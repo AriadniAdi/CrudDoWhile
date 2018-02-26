@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container"> 
         <div>
             <ul class="breadcrumbsUser">
                 <li>Você está em: 
