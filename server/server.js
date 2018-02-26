@@ -76,7 +76,7 @@ app.post('/user', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Não foi possível criar o usuário' } );
+        res.json({ message: 'Não foi possível criar o usuário.' } );
     });
 });
 
@@ -93,7 +93,7 @@ app.delete('/user/:cpf', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Não foi possível deletar o usuário' });
+        res.json({ message: 'Não foi possível deletar o usuário.' });
     });
 });
 
@@ -116,7 +116,7 @@ app.put('/user/:cpf/:status', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Não foi possível alterar o usuário' });
+        res.json({ message: 'Não foi possível alterar o usuário.' });
     });
 });
 
@@ -153,5 +153,5 @@ app.put('/user/:cpf', function(req, res) {
 });
 
 app.listen(3001, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('doWhile server app listening on port 3001!');
 });
