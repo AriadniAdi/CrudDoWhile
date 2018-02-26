@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <button v-on:click="register()">Cadastre-se</button>
     <table>
         <tr>
             <th>Nome</th>
@@ -19,6 +21,7 @@
             <td>{{ user.status }}</td>
         </tr>
     </table>
+    </div>
 </template>
 <script>
 
@@ -31,7 +34,10 @@ export default {
   },
   methods: {
       openUser: function(cpf) {
-          this.$router.push({ name: 'UserEdit', params: { cpf: cpf } })
+          this.$router.push({ name: 'EditUser', params: { cpf: cpf } })
+      },
+      register: function() {
+          this.$router.push({ name: 'CreateUser' })
       }
   },
   created: function() {
