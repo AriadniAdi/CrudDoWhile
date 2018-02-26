@@ -1,11 +1,13 @@
 <template>
-    <div >
-        <ul class="breadcrumbsUser">
-            <li> Você está em: 
+    <div>
+        <header>
+        <nav>
+            <ul> Você está em: 
                 <router-link to="Users">Usuários</router-link>
                 <router-link to="User"> > Usuário</router-link>
-            </li>
-        </ul>
+            </ul>
+        </nav>
+        </header>
         <div v-if="requestError"> <span> {{ requestError }} </span> </div>
         <form v-if="this.showsForm">
             <p v-if="formErrors.length">
@@ -15,16 +17,56 @@
                     </li>
                 </ul>
             </p>
-            Nome: <input v-model="user.firstname" placeholder="Nome" >
-            Sobrenome: <input v-model="user.lastname" placeholder="Sobrenome">
-            Data de nascimento: <input v-model="user.birth_date" placeholder="Data de nascimento">
-            Telefone: <input v-model="user.phone" placeholder="Telefone">
-            Email: <input v-model="user.email" placeholder="Email">
-            CPF: <input v-model="user.cpf" placeholder="CPF">
-            Status: <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
+            <div id="register">
 
-        <button v-on:click="saveUser()">Salvar</button>
-        <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
+<div class="field-row">
+    <div class="field-box">
+        <span>NOME</span>
+    </div>
+<input v-model="user.firstname" placeholder="Nome" >
+</div>
+<div class="field-row">
+    <div class="field-box">
+        <span>SOBRENOME</span>
+    </div>
+<input v-model="user.lastname" placeholder="Sobrenome">
+</div>
+<div class="field-row">
+    <div class="field-box">
+        <span>EMAIL</span>
+    </div>
+<input v-model="user.email" placeholder="Email">
+</div>
+<div class="field-row">
+    <div class="field-box">
+        <span>DATA DE NASCIMENTO</span>
+    </div>
+<input v-model="user.birth_date" placeholder="Data de nascimento">
+</div>
+<div class="field-row">
+    <div class="field-box">
+        <span>TELEFONE</span>
+    </div>
+<input v-model="user.phone" placeholder="Telefone">
+</div>
+<div class="field-row">
+    <div class="field-box">
+        <span>CPF</span>
+    </div>
+<input v-model="user.cpf" placeholder="CPF">
+</div>
+<div class="field-row">
+    <div class="field-box">
+        <span>STATUS</span>
+    </div>
+<input type="checkbox" v-model="user.status" true-value="1" false-value="0">
+</div>
+
+
+
+<input v-model="user.firstname" placeholder="Nome" ></div>
+            <button v-on:click="saveUser()">Salvar</button>
+            <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
         </form>
     </div>
 </template>

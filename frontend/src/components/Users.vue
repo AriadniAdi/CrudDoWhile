@@ -19,7 +19,7 @@
             </form>
         </div>
         <table class="tableStyle">
-            <tr >
+            <tr>
                 <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>Telefone</th>

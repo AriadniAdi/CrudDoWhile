@@ -3,12 +3,13 @@ table {
     /* botar borda e centralizar */
 }
 
-.table {
-    width: 100%;
-    margin-bottom : .5em;
+.tableStyle {
+    width: 90%;
+    margin-bottom : .6em;
     table-layout: fixed;
     text-align: left;
     border: 1;
+    margin: 0 auto;
 }
 
 header {
@@ -16,7 +17,25 @@ header {
 }
 
 .input {
+    width: 90%;
+    margin-bottom : .10em;
+    table-layout: fixed;
     text-align: left;
-    width: auto;
-    padding: 0.5%;
+    border: 1;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#register {
+    width: 90%;
+    margin-bottom : .6em;
+    table-layout: fixed;
+    text-align: left;
+    margin: 0 auto; 
+    font: sans-serif;
+}
+
+th {
+    border: 1;
+    border-bottom-color: skyblue;
 }
