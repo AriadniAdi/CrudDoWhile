@@ -12,13 +12,13 @@
                 <th>Status</th>
             </tr>
             <tr v-for="user in users">
-                <value-row :cpf="user.cpf" :value="user.firstname"></value-row>
-                <value-row :cpf="user.cpf" :value="user.lastname"></value-row>
-                <value-row :cpf="user.cpf" :value="user.phone"></value-row>
-                <value-row :cpf="user.cpf" :value="user.cpf"></value-row>
-                <value-row :cpf="user.cpf" :value="user.email"></value-row>
-                <value-row :cpf="user.cpf" :value="user.birth_date"></value-row>
-                <value-row :cpf="user.cpf" :value="user.status"></value-row>
+                <value-text :cpf="user.cpf" :value="user.firstname"></value-text>
+                <value-text :cpf="user.cpf" :value="user.lastname"></value-text>
+                <value-text :cpf="user.cpf" :value="user.phone"></value-text>
+                <value-text :cpf="user.cpf" :value="user.cpf"></value-text>
+                <value-text :cpf="user.cpf" :value="user.email"></value-text>
+                <value-text :cpf="user.cpf" :value="user.birth_date"></value-text>
+                <value-checkbox :cpf="user.cpf" :status="user.status"></value-checkbox>
                 <td><button v-on:click="deleteUser()">Deletar</button></td>
             </tr>
         </table>
@@ -28,12 +28,28 @@
 
 import Vue from 'vue'
 
-Vue.component('value-row', {
+Vue.component('value-text', {
     template: '<td v-on:click="openUser(cpf)">{{ value }}</td>',
     props: ["cpf", "value"],
     methods: {
         openUser: function(cpf) {
           this.$router.push({ name: 'EditUser', params: { cpf: cpf } })
+        }
+    }
+});
+
+Vue.component('value-checkbox', {
+    template: '<td><input type="checkbox" value="status" v-on:click="changeStatus(cpf, $event)"/></td>',
+    props: ["status", "cpf"],
+    methods: {
+        changeStatus: function(cpf, event) {
+            const status = event.target.checked ? 1 : 0;
+            this.$http.put('http://localhost:3001/user/' + cpf + '/' + status)
+            .then(function(result) {
+
+            }, function(error) {
+                this.requestError = error.body.message;
+            }); 
         }
     }
 });
