@@ -16,10 +16,24 @@ app.use(function(req, res, next) {
     next();
 });
 
+const moment = require('moment');
+moment.locale('pt-BR');
+
+function getDateFormatedForResponse(date) {
+    return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+}
+
+function getDateFormatedForDatabase(date) {
+    return moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+}
+
 app.get('/users', function (req, res) {
     const sql = 'SELECT * FROM USER;';
     databaseService.executeQuery(sql)
     .then(function(result) {
+        result.forEach(element => {
+            element.birth_date = getDateFormatedForResponse(element.birth_date)
+        });
         res.json(result);
     })
     .catch(function(error) {
@@ -33,6 +47,7 @@ app.get('/user/:cpf', function (req, res) {
     databaseService.executeQuery(sql)
     .then(function(result) {
         if(result.length > 0) {
+            result[0].birth_date = getDateFormatedForResponse(result[0].birth_date)
             res.json(result[0]);
         } else {
             res.status(404);
@@ -52,7 +67,7 @@ app.post('/user', function(req, res) {
     '"' + req.body.cpf + '",' +
     '"' + req.body.email + '",' +
     '"' + req.body.phone + '",' +
-    '"' + req.body.birth_date + '",' +
+    '"' + getDateFormatedForDatabase(req.body.birth_date) + '",' +
     '"' + req.body.status + '"' +
     ');';
     databaseService.executeQuery(sql)
@@ -113,7 +128,7 @@ app.put('/user/:cpf', function(req, res) {
         { key: 'email', value: req.body.email, useQuotes: true },
         { key: 'cpf', value: req.body.cpf, useQuotes: true },
         { key: 'status', value: req.body.status, useQuotes: false },
-        { key: 'birth_date', value: req.body.birth_date, useQuotes: true }
+        { key: 'birth_date', value: getDateFormatedForDatabase(req.body.birth_date), useQuotes: true }
     ]
     .filter(function(element) { return element.value })
     .map(function(element) {
