@@ -45,6 +45,8 @@ export default {
           }); 
       },
       deleteUser: function() {
+          if(!confirm('Você deseja deletar?')) { return }
+          
           this.$http.delete('http://localhost:3001/user/' + this.$route.params.cpf)
           .then(function(result) {
             this.openUsers();
