@@ -1,5 +1,5 @@
 <template>
-    <div class="container"> 
+    <div class="container">
         <div>
             <ul class="breadcrumbsUser">
                 <li>Você está em: 
@@ -18,7 +18,6 @@
                     <option value="0">Inativo</option>
                     <option value="all">Todos</option>
                 </select>
-                <button v-on:click="search()">Pesquisar</button>
             </form>
             <tr>
                 <th>Nome</th>
@@ -109,3 +108,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>
