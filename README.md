@@ -38,7 +38,7 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 ## Execução
 ### Servidor Node
 
-* 1 - Edite o arquivo database-service para incluir seus dados de conexão.
-* 2 - No terminal abra a pasta server dentro da raiz do projeto.
-* 3 - Execute: ``node create-table.js``  para criação das tabelas e database.
-* 4 - Execute ``node server.js`` para iniciar o servidor node.
+1. Edite o arquivo database-service para incluir seus dados de conexão.
+2. No terminal abra a pasta server dentro da raiz do projeto.
+3. Execute: ``node create-table.js``  para criação das tabelas e database.
+4. Execute ``node server.js`` para iniciar o servidor node.
