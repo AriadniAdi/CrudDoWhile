@@ -19,7 +19,7 @@
             </form>
         </div>
         <table class="tableStyle">
-            <tr>
+            <tr class="diff">
                 <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>Telefone</th>
@@ -27,6 +27,7 @@
                 <th>Email</th>
                 <th>Data de Nascimento</th>
                 <th>Status</th>
+                <th>Ação</th>
             </tr>
             <tr v-for="user in users" v-if="filterRow(user)">
                 <value-text :cpf="user.cpf" :value="user.firstname"></value-text>
@@ -34,9 +35,9 @@
                 <value-text :cpf="user.cpf" :value="user.phone"></value-text>
                 <value-text :cpf="user.cpf" :value="user.cpf"></value-text>
                 <value-text :cpf="user.cpf" :value="user.email"></value-text>
-                <value-text :cpf="user.cpf" :value="user.birth_date"></value-text>
+                <value-text :cpf="user.cpf" :value="user.birth_date" ></value-text>
                 <value-checkbox :cpf="user.cpf" :status="user.status" true-value="1" false-value="0"></value-checkbox>
-                <td><button v-on:click="deleteUser()">Deletar</button></td>
+                <td class="action"><button v-on:click="deleteUser()">Deletar</button></td>
             </tr>
         </table>
     </div>

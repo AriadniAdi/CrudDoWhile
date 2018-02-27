@@ -18,53 +18,48 @@
                 </ul>
             </p>
             <div id="register">
+                <div class="field-row">
+                    <div class="field-box">
+                        <span>NOME</span>
+                    </div>
+                <input v-model="user.firstname" placeholder="Nome" >
+                </div>
+                <div class="field-row">
+                    <div class="field-box">
+                        <span>SOBRENOME</span>
+                    </div>
+                <input v-model="user.lastname" placeholder="Sobrenome">
+                </div>
+                <div class="field-row">
+                    <div class="field-box">
+                        <span>EMAIL</span>
+                    </div>
+                <input v-model="user.email" placeholder="Email">
+                </div>
 
-<div class="field-row">
-    <div class="field-box">
-        <span>NOME</span>
-    </div>
-<input v-model="user.firstname" placeholder="Nome" >
-</div>
-<div class="field-row">
-    <div class="field-box">
-        <span>SOBRENOME</span>
-    </div>
-<input v-model="user.lastname" placeholder="Sobrenome">
-</div>
-<div class="field-row">
-    <div class="field-box">
-        <span>EMAIL</span>
-    </div>
-<input v-model="user.email" placeholder="Email">
-</div>
-<div class="field-row">
-    <div class="field-box">
-        <span>DATA DE NASCIMENTO</span>
-    </div>
-<input v-model="user.birth_date" placeholder="Data de nascimento">
-</div>
-<div class="field-row">
-    <div class="field-box">
-        <span>TELEFONE</span>
-    </div>
-<input v-model="user.phone" placeholder="Telefone">
-</div>
-<div class="field-row">
-    <div class="field-box">
-        <span>CPF</span>
-    </div>
-<input v-model="user.cpf" placeholder="CPF">
-</div>
-<div class="field-row">
-    <div class="field-box">
-        <span>STATUS</span>
-    </div>
-<input type="checkbox" v-model="user.status" true-value="1" false-value="0">
-</div>
-
-
-
-<input v-model="user.firstname" placeholder="Nome" ></div>
+                <div class="field-row">
+                    <div class="field-box">
+                        <span>DATA DE NASCIMENTO</span>
+                    </div>
+                <input v-model="user.birth_date" placeholder="Data de nascimento">
+                    <div class="field-box">
+                        <span>TELEFONE</span>
+                    </div>
+                <input v-model="user.phone" placeholder="Telefone">
+                </div>
+                <div class="field-row">
+                    <div class="field-box">
+                        <span>CPF</span>
+                    </div>
+                <input v-model="user.cpf" placeholder="CPF">
+                </div>
+                <div class="field-row">
+                    <div class="field-box">
+                        <span>STATUS</span>
+                </div>
+            <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
+            </div>
+            </div>
             <button v-on:click="saveUser()">Salvar</button>
             <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
         </form>

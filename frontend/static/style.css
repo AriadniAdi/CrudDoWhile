@@ -35,7 +35,25 @@ header {
     font: sans-serif;
 }
 
-th {
-    border: 1;
-    border-bottom-color: skyblue;
+.diff {
+    background-color: skyblue;
+    text-align: center;
+}
+
+.action { 
+    text-align: center; 
+}
+
+.field-box {
+    display: inline
+}
+
+.field-row span {
+display: block;
+width: 100%;
+}
+
+.field-row input {
+display: block;
+width: 100%;
 }
