@@ -1,64 +1,72 @@
 <template>
     <div>
-        <header>
-        <nav>
-            <ul> Você está em: 
-                <router-link to="/Users">Usuários</router-link>
-                <router-link to=""> > Usuário</router-link>
-            </ul>
-        </nav>
-        </header>
-        <div v-if="requestError"> <span> {{ requestError }} </span> </div>
-        <form v-if="this.showsForm" id="formStyle">
-            <p v-if="formErrors.length">
-                <ul>
-                    <li v-for="error in formErrors">
-                        {{ error }}
-                    </li>
-                </ul>
-            </p>
-            <div id="register">
+        <form>
+            <div class="title">
+                <span>Cadastro de Usuário</span>
+            </div>
+            <div class="separator"></div>
+            <div id="container">
                 <div class="field-row">
                     <div class="field-box">
                         <span>NOME</span>
-                    <input v-model="user.firstname" placeholder="Nome" >
+                        <input v-model="user.firstname" placeholder="Nome">
+                        <div class="field-error">
+                            <span v-if="errors.firstname">* campo obrigatório</span>
+                        </div>
                     </div>
                 </div>
                 <div class="field-row">
                     <div class="field-box">
                         <span>SOBRENOME</span>
-                    <input v-model="user.lastname" placeholder="Sobrenome">
+                        <input v-model="user.lastname" placeholder="Sobrenome">
+                        <div class="field-error"> 
+                            <span v-if="errors.lastname">* campo obrigatório</span>
+                        </div>
                     </div>
                 </div>
                 <div class="field-row">
                     <div class="field-box">
                         <span>EMAIL</span>
-                    <input v-model="user.email" placeholder="Email">
+                        <input v-model="user.email" placeholder="Email">
+                        <div class="field-error"> 
+                            <span v-if="errors.email">* campo obrigatório</span>
+                        </div>
                     </div>
                 </div>
                 <div class="field-row">
-                    <div class="field-box" id="field-box-cpf">
+                    <div class="field-box">
                         <span>CPF</span>
                          <input v-model="user.cpf" placeholder="CPF">
+                         <div class="field-error">
+                            <span v-if="errors.cpf">* campo obrigatório</span>
+                        </div>
                     </div>
-                    <div class="field-box field-box-right" id="field-box-phone">
+                    <div class="field-box field-box-right">
                         <span>TELEFONE</span>
                         <input v-model="user.phone" placeholder="Telefone">
+                        <div class="field-error">
+                            <span v-if="errors.phone">* campo obrigatório</span>
+                        </div>
                     </div>
                 </div>
                 <div class="field-row">
-                    <div class="field-box" id="field-box-birthdate">
+                    <div class="field-box" id="field-box-datebirth">
                         <span>DATA DE NASCIMENTO</span>
                         <input v-model="user.birth_date" placeholder="Data de nascimento">
+                        <div class="field-error">
+                            <span v-if="errors.birth_date">* campo obrigatório</span>
+                        </div>
                     </div>
-                    <div class="field-box field-box-right" id="field-box-status">
+                    <div class="field-box field-box-right" id="field-status" v-if="this.$route.params.cpf">
                         <span>STATUS</span>
-                      <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
+                        <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
                     </div>
                 </div>
-                <button v-on:click="saveUser()">Salvar</button>
-            <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
-          </div>
+                <div id="actions">
+                    <button v-on:click="saveUser()" id="save">Salvar</button>
+                    <button v-if="this.$route.params.cpf" v-on:click="deleteUser()" class="delete">Excluir</button>
+                </div>
+            </div>
         </form>
     </div>
 </template>
@@ -69,9 +77,7 @@ export default {
   data () {
     return {
         user: {},
-        showsForm: true,
-        requestError: null,
-        formErrors: []
+        errors: {},
     }
   },
   methods: {
@@ -80,8 +86,8 @@ export default {
           .then(function(result) {
               this.user = result.body;
           }, function(error) {
-              this.requestError = error.body.message;
-              this.showsForm = false;
+              alert(error.body.message);
+              this.openUsers();
           }); 
       },
       deleteUser: function() {
@@ -91,7 +97,7 @@ export default {
           .then(function(result) {
             this.openUsers();
           }, function(error) {
-              this.requestError = error.body.message;
+              alert(error.body.message);
           }); 
       },
       updateUser: function() {
@@ -99,15 +105,16 @@ export default {
           .then(function(result) {
               this.openUsers();
           }, function(error) {
-              this.requestError = error.body.message;
+              alert(error.body.message);
           }); 
       },
       createUser: function() {
+          this.user.status = 1;
           this.$http.post('http://localhost:3001/user', this.user)
           .then(function(result) {
               this.openUsers();
           }, function(error) {
-              this.requestError = error.body.message;
+              alert(error.body.message);
           }); 
       },
       saveUser: function() {
@@ -123,26 +130,28 @@ export default {
           this.$router.push({name: 'Users'});
       },
       validateForm: function() {
-          this.formErrors = [];
+          this.errors = {};
+          const message = 'Campo obrigatório';
+
           if(!this.user.firstname) {
-              this.formErrors.push('Campo nome obrigatório');
+              this.errors.firstname = message;
           }
           if(!this.user.lastname) {
-              this.formErrors.push('Campo sobrenome obrigatório');
+              this.errors.lastname = message;
           }
           if(!this.user.birth_date) {
-              this.formErrors.push('Campo data de nascimento obrigatório');
+              this.errors.birth_date = message;
           }
           if(!this.user.phone) {
-              this.formErrors.push('Campo telefone obrigatório');
+              this.errors.phone = message;
           }
           if(!this.user.email) {
-              this.formErrors.push('Campo email obrigatório');
+              this.errors.email = message;
           }
           if(!this.user.cpf) {
-              this.formErrors.push('Campo cpf obrigatório');
+              this.errors.cpf = message;
           }
-          return this.formErrors.length == 0
+          return Object.keys(this.errors).length == 0;
       }
   },
   created: function() {
@@ -152,35 +161,109 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 
-.field-box span {
-  font-size: 12px;
-}
-#field-box-birthdate, #field-box-phone, #field-box-status, #field-box-cpf {
-  width: 30%;
-  min-width: 150px;
-}
-
-.field-box-right {
-  float:right;
-}
-.field-row span {
- display: block;
-width: 100%;
-}
-.field-row input {
-display: block;
-width: 100%;
-}
-
 .field-box {
-display: inline-block;
-width: 100%;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0px;
 }
 
-#formStyle {
-    width: 50%;
-    margin: 0 auto; 
+#field-status input {
+    width: 20px;
+    margin: 0 auto;
+}
+
+#field-status span {
+    text-align: center;
+}
+
+.field-box input {
+    height: 30px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.field-box span {
+    font-size: 12px;
+    display: block;
+    width: 100%;
+}
+
+.field-row > div:not(:only-child) {
+    width: 30%;
+    min-width: 150px;
+}
+
+#field-box-datebirth {
+    width: 30%;
+    min-width: 150px;
+}
+
+.field-row > div:not(:only-child):last-child {
+    float: right;
+}
+
+.field-error {
+    height: 20px;
+}
+
+.field-error span {
+    font-size: 12px;
+    color: red;
+    display: inline;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+form > div {
+    min-width: 400px;
+    width: 100%;
+    
+}
+
+form .title {
+    background: #fbfbfb;
+    padding: 10px 0px;
+    font-size: 20px;
+    text-align: center;
+}
+.separator {
+    height: 2px;
+    background: #EA287E;
+}
+
+#container {
+    background: #fdfdfd;
+    border-width: 1px;
+    border-color: #efefef;
+    border-style: solid;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#container button {
+    width: 45%;
+    display: inline-block;
+    height: 34px;
+    margin-top: 10px;
+}
+
+#container button:hover {
+    cursor: pointer;
+}
+
+#save {
+    background-color: #51b156;
+}
+
+#actions > button:not(:only-child):last-child {
+    float: right;
 }
 </style>
