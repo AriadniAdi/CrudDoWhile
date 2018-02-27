@@ -1,34 +1,56 @@
-table {
-    border: 1px solid black;
-    /* botar borda e centralizar */
+/*
+YUI 3.5.0 (build 5089)
+Copyright 2012 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+#menu {
+    width: 100%;
+    background: #4C3434;
+    height: 40px;
 }
 
-.tableStyle {
-    width: 90%;
-    margin-bottom : .6em;
-    table-layout: fixed;
-    text-align: left;
-    border: 1;
-    margin: 0 auto;
+#menu ul {
+    list-style: none;
 }
 
-header {
-    height: 30%;
-}
-
-#register {
-    width: 90%;
-    margin-bottom : .6em;
-    text-align: left;
-    margin: 0 auto; 
-    font: sans-serif;
-}
-
-.diff {
-    background-color: skyblue;
+#menu  ul li {
+    display:table-cell;
+    margin: 0px 20px;
+    height: 40px;
+    width: 100px;
     text-align: center;
+    vertical-align: middle;  
 }
 
-.action { 
-    text-align: center; 
+#menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.delete {
+    background-color: #ffb8b8;
+}
+
+.delete:hover {
+    background: #e88282;
+}
+
+button {
+    border-radius: 4px;
+    border-width: 0px;
+    font-size: 14px;
+    color: white;
+}
+
+#app {
+    margin-top: 40px;
 }
