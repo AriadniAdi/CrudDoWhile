@@ -32,7 +32,7 @@ app.get('/users', function (req, res) {
     databaseService.executeQuery(sql)
     .then(function(result) {
         result.forEach(element => {
-            element.birth_date = getDateFormatedForResponse(element.birth_date)
+            element.birth_date = getDateFormatedForResponse(element.birth_date);
         });
         res.json(result);
     })
@@ -72,7 +72,7 @@ app.post('/user', function(req, res) {
     ');';
     databaseService.executeQuery(sql)
     .then(function(result) {
-        res.json({message: 'usuário incluído com sucesso.'});
+        res.json({message: 'Usuário incluído com sucesso.'});
     })
     .catch(function(error) {
         res.status(400);
@@ -85,7 +85,7 @@ app.delete('/user/:cpf', function(req, res) {
     databaseService.executeQuery(sql)
     .then(function(result) {
         if(result.affectedRows > 0) {
-            res.json({message: 'usuário excluído com sucesso.'});
+            res.json({message: 'Usuário excluído com sucesso.'});
         } else {
             res.status(404);
             res.json({ message: 'Usuário não encontrado.' });
@@ -108,7 +108,7 @@ app.put('/user/:cpf/:status', function(req, res) {
     databaseService.executeQuery(sql)
     .then(function(result) {
         if(result.affectedRows > 0) {
-            res.json({message: 'usuário alterado com sucesso.'});
+            res.json({message: 'Usuário alterado com sucesso.'});
         } else {
             res.status(404);
             res.json({message: 'Usuário não encontrado.'});
@@ -140,7 +140,7 @@ app.put('/user/:cpf', function(req, res) {
     databaseService.executeQuery(sql)
     .then(function(result) {
         if(result.affectedRows > 0) {
-            res.json({message: 'usuário alterado com sucesso.'});
+            res.json({message: 'Usuário alterado com sucesso.'});
         } else {
             res.status(404);
             res.json({message: 'Usuário não encontrado.'});
@@ -148,7 +148,7 @@ app.put('/user/:cpf', function(req, res) {
     })
     .catch(function(error) {
         res.status(400);
-        res.json({ message: 'Não foi possível alterar o usuário' });
+        res.json({ message: 'Não foi possível alterar o usuário.' });
     });
 });
 
