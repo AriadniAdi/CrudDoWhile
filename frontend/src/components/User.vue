@@ -3,13 +3,13 @@
         <header>
         <nav>
             <ul> Você está em: 
-                <router-link to="Users">Usuários</router-link>
-                <router-link to="User"> > Usuário</router-link>
+                <router-link to="/Users">Usuários</router-link>
+                <router-link to=""> > Usuário</router-link>
             </ul>
         </nav>
         </header>
         <div v-if="requestError"> <span> {{ requestError }} </span> </div>
-        <form v-if="this.showsForm">
+        <form v-if="this.showsForm" id="formStyle">
             <p v-if="formErrors.length">
                 <ul>
                     <li v-for="error in formErrors">
@@ -37,30 +37,28 @@
                     </div>
                 </div>
                 <div class="field-row">
-                    <div class="field-box">
-                        <span>DATA DE NASCIMENTO</span>
-                        <input v-model="user.birth_date" placeholder="Data de nascimento">
+                    <div class="field-box" id="field-box-cpf">
+                        <span>CPF</span>
+                         <input v-model="user.cpf" placeholder="CPF">
                     </div>
-                    <div class="field-box">
+                    <div class="field-box field-box-right" id="field-box-phone">
                         <span>TELEFONE</span>
                         <input v-model="user.phone" placeholder="Telefone">
                     </div>
                 </div>
                 <div class="field-row">
-                    <div class="field-box">
-                        <span>CPF</span>
-                         <input v-model="user.cpf" placeholder="CPF">
+                    <div class="field-box" id="field-box-birthdate">
+                        <span>DATA DE NASCIMENTO</span>
+                        <input v-model="user.birth_date" placeholder="Data de nascimento">
                     </div>
-                <div class="field-row">
-                    <div class="field-box">
+                    <div class="field-box field-box-right" id="field-box-status">
                         <span>STATUS</span>
-                    <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
+                      <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-            <button v-on:click="saveUser()">Salvar</button>
+                <button v-on:click="saveUser()">Salvar</button>
             <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
+          </div>
         </form>
     </div>
 </template>
@@ -154,4 +152,35 @@ export default {
   }
 }
 </script>
+<style scoped>
 
+.field-box span {
+  font-size: 12px;
+}
+#field-box-birthdate, #field-box-phone, #field-box-status, #field-box-cpf {
+  width: 30%;
+  min-width: 150px;
+}
+
+.field-box-right {
+  float:right;
+}
+.field-row span {
+ display: block;
+width: 100%;
+}
+.field-row input {
+display: block;
+width: 100%;
+}
+
+.field-box {
+display: inline-block;
+width: 100%;
+}
+
+#formStyle {
+    width: 50%;
+    margin: 0 auto; 
+}
+</style>

@@ -109,30 +109,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-#field-box-cpf {
-  width: 30%;
-  min-width: 150px;
-}
-
-#field-box-phone {
-  width: 30%;
-  float: right;
-  min-width: 150px;
-}
-
-.field-row span {
- display: block;
-width: 100%;
-}
-.field-row input {
-display: block;
-width: 100%;
-}
-
-.field-box {
-display: inline-block;
-width: 100%;
-}
-</style>

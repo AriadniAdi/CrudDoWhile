@@ -16,20 +16,9 @@ header {
     height: 30%;
 }
 
-.input {
-    width: 90%;
-    margin-bottom : .10em;
-    table-layout: fixed;
-    text-align: left;
-    border: 1;
-    margin: 0 auto;
-    padding: 10px;
-}
-
 #register {
     width: 90%;
     margin-bottom : .6em;
-    table-layout: fixed;
     text-align: left;
     margin: 0 auto; 
     font: sans-serif;
@@ -42,8 +31,4 @@ header {
 
 .action { 
     text-align: center; 
-}
-
-.field-box {
-    display: inline
 }
