@@ -13,5 +13,5 @@ const sqlCreateTable = 'CREATE TABLE IF NOT EXISTS User ('+
 databaseService.executeQuery('create database IF NOT EXISTS doWhile;')
 .then(function() {
   databaseService.database = 'dowhile';
-  databaseService.executeQuery(sqlCreateTable)
+  databaseService.executeQuery(sqlCreateTable);
 });
