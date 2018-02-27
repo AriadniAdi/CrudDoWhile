@@ -21,45 +21,44 @@
                 <div class="field-row">
                     <div class="field-box">
                         <span>NOME</span>
+                    <input v-model="user.firstname" placeholder="Nome" >
                     </div>
-                <input v-model="user.firstname" placeholder="Nome" >
                 </div>
                 <div class="field-row">
                     <div class="field-box">
                         <span>SOBRENOME</span>
+                    <input v-model="user.lastname" placeholder="Sobrenome">
                     </div>
-                <input v-model="user.lastname" placeholder="Sobrenome">
                 </div>
                 <div class="field-row">
                     <div class="field-box">
                         <span>EMAIL</span>
+                    <input v-model="user.email" placeholder="Email">
                     </div>
-                <input v-model="user.email" placeholder="Email">
                 </div>
-
                 <div class="field-row">
                     <div class="field-box">
                         <span>DATA DE NASCIMENTO</span>
+                        <input v-model="user.birth_date" placeholder="Data de nascimento">
                     </div>
-                <input v-model="user.birth_date" placeholder="Data de nascimento">
                     <div class="field-box">
                         <span>TELEFONE</span>
+                        <input v-model="user.phone" placeholder="Telefone">
                     </div>
-                <input v-model="user.phone" placeholder="Telefone">
                 </div>
                 <div class="field-row">
                     <div class="field-box">
                         <span>CPF</span>
+                         <input v-model="user.cpf" placeholder="CPF">
                     </div>
-                <input v-model="user.cpf" placeholder="CPF">
-                </div>
                 <div class="field-row">
                     <div class="field-box">
                         <span>STATUS</span>
+                    <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
                 </div>
-            <input type="checkbox" v-model="user.status" true-value="1" false-value="0">
             </div>
-            </div>
+        </div>
+    </div>
             <button v-on:click="saveUser()">Salvar</button>
             <button v-if="this.$route.params.cpf" v-on:click="deleteUser()">Excluir</button>
         </form>
@@ -155,3 +154,4 @@ export default {
   }
 }
 </script>
+
