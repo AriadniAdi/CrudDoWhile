@@ -54,3 +54,5 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 
  ### Se tudo der certo, ao acessar a url: http://localhost:8080/#/users você deverá ver a seguinte tela:
  ![Screenshot](CrudDoWhile.png)
+ 
+ ### Nas [Issues](https://github.com/AriadniAdi/CrudDoWhile/issues) voce encontra algumas ideias de melhoria que não tive tempo de desenvolver.
