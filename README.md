@@ -48,9 +48,8 @@ Teste para desenvolvedor web FulStack da empresa DoWhile
 
 ### Vue.js
 1. No terminal abra a pasta do projeto doWhile dentro da pasta FrontEnd. E execute:
-2. ``npm install --global vue-cli`` Para instalar o vue-cli globalmente.
-3. ``npm install`` Para instalação das dependências.
-4. ``npm run dev`` Para executar.
+2. ``npm install`` Para instalação das dependências.
+3. ``npm run dev`` Para executar.
 
  ### Se tudo der certo, ao acessar a url: http://localhost:8080/#/users você deverá ver a seguinte tela:
  ![Screenshot](CrudDoWhile.png)
